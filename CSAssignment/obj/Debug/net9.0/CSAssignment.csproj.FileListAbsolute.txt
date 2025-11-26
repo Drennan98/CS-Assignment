@@ -1,0 +1,14 @@
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\bin\Debug\net9.0\CSAssignment.exe
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\bin\Debug\net9.0\CSAssignment.deps.json
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\bin\Debug\net9.0\CSAssignment.runtimeconfig.json
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\bin\Debug\net9.0\CSAssignment.dll
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\bin\Debug\net9.0\CSAssignment.pdb
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.AssemblyInfoInputs.cache
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.AssemblyInfo.cs
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.csproj.CoreCompileInputs.cache
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.dll
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\refint\CSAssignment.dll
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.pdb
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.genruntimeconfig.cache
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\ref\CSAssignment.dll
