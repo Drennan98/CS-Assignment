@@ -1,11 +1,11 @@
-namespace Timesheet
+namespace Timesheet // Container name.
 {
-    class Employee
+    class Employee // Must be same as file name.
     {
-        public string Name;
+        public string Name; // Public variables, essentially the blueprint for our project.
         
-        public string Department;
+        public string Department; // Public variables, essentially the blueprint for our project.
 
-        public double Hours; 
+        public double Hours; // Public variables, essentially the blueprint for our project.
     }
 }
