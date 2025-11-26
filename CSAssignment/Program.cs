@@ -1,7 +1,13 @@
-﻿class Program
+﻿namespace Timesheet
 {
-    public static void Main(string[] args)
+    class Program
     {
-        
+        public static void Main(string[] args)
+        {
+            
+        }
     }
 }
+
+
+
