@@ -61,13 +61,25 @@ namespace Timesheet // Container name.
                     differentDepartments[deptCount] = currentDepartment; // Add to department count list. 
                     deptCount++; // Increment so we can add department to next empty slot. 
                 }
-            }   
+
+               
+            }  
                 int totalLinesNeeded = deptCount * 5; // Every department needs 5 line of text. 
 
                 string[] linesToSave = new string[totalLinesNeeded]; // String array is needed to hold the total lines needed. 
-            }
-          
-        }   
+            }   
+                int currentLineIndex = 0; // Which line is in linesToSave array. 
+
+                for (int i = 0; i < deptCount; i++) // Looping through unique department again. 
+                {
+                    string deptName = differentDepartments[i]; // Get current department name. 
+                    
+                    double totalHours = 0; // Total hours. 
+                    int employeeNumber = 0; // How many employees in the department. 
+                    double highestHours = -1; // Highest hours seen so far. 
+                    string topEmployee = ""; // Name of best employee. 
+                }
+        }       
         
     }
 
