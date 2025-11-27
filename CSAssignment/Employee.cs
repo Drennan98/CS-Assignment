@@ -1,4 +1,4 @@
-namespace Timesheet // Container name.
+namespace SimpleTimesheet // Container name.
 {
     class Employee // Must be same as file name.
     {

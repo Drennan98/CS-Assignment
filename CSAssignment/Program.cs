@@ -24,7 +24,7 @@
         static Employee[] ReadDataFromFile()
         {
             // Read the entire text file from the hard drive into a String Array.
-            string[] lines = File.ReadAllLines("OrganisationWeeklyTimesheet.csv");
+            string[] lines = File.ReadAllLines("Resources/OrganisationWeeklyTimesheet.csv");
 
             // Calculate how many employees are in the file (minus header).
             int numberOfEmployees = lines.Length - 1;

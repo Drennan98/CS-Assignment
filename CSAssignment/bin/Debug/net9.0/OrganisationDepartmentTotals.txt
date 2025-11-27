@@ -1,0 +1,25 @@
+Department – Finance
+Total Hours Worked by Department: 65 Hours
+Average Hours Worked by Employees: 32.5 Hours
+Employee with Most Hours Worked: John Smith
+
+Department – Marketing
+Total Hours Worked by Department: 147 Hours
+Average Hours Worked by Employees: 29.4 Hours
+Employee with Most Hours Worked: Drew Walters
+
+Department – Human Resources
+Total Hours Worked by Department: 106 Hours
+Average Hours Worked by Employees: 26.5 Hours
+Employee with Most Hours Worked: Heather Lynch
+
+Department – Engineering
+Total Hours Worked by Department: 332 Hours
+Average Hours Worked by Employees: 33.2 Hours
+Employee with Most Hours Worked: Alice Brown
+
+Department – Management
+Total Hours Worked by Department: 112 Hours
+Average Hours Worked by Employees: 28 Hours
+Employee with Most Hours Worked: June Gaffney
+

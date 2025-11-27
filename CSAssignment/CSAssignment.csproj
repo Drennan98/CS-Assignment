@@ -11,10 +11,6 @@
     <Content Include="Resources\*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\" />
   </ItemGroup> 
 
 </Project>
