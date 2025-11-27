@@ -23,11 +23,16 @@ namespace Timesheet // Container name.
                 newEmployee.Name = columns[0]; // New employee name which is given index 0 as Name is first heading in our array of columns. 
                 newEmployee.Department = columns[1]; // New employee Department which is given index 1 as Department is second heading in our array of columns. 
 
-                double mon = double.Parse(columns[2]);
-                double tues = double.Parse(columns[3]);
-                double wed = double.Parse(columns[4]);
-                double thurs = double.Parse(columns[5]);
-                double fri = double.Parse(columns[6]);
+
+                // We need to convert numbers into doubles, i.e 8.0. The CSV file currently has them in strings. 
+
+                double mon = double.Parse(columns[2]); // Monday 
+                double tues = double.Parse(columns[3]); // Tuesday
+                double wed = double.Parse(columns[4]); // Wednesday
+                double thurs = double.Parse(columns[5]); // Thursday
+                double fri = double.Parse(columns[6]); // Friday 
+
+                newEmployee.Hours = mon + tues + wed + thurs + fri; // Adding up 5 days together to get employee hours. 
 
             }
         }
