@@ -34,9 +34,13 @@ namespace Timesheet // Container name.
 
                 newEmployee.Hours = mon + tues + wed + thurs + fri; // Adding up 5 days together to get employee hours. 
 
-                employees[arrayIndex] = newEmployee; // New emplpye is placed into main array.
-                arrayIndex++;
+                employees[arrayIndex] = newEmployee; // New employee is placed into main array.
+                arrayIndex++; // Increments as next employee goes into next slot. 
             }
+
+            string[] differentDepartments = new string[numberOfEmployees]; // Create array for different departments. 
+
+            int deptCount = 0; 
         }
     }
 
