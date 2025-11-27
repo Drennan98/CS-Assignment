@@ -40,8 +40,15 @@ namespace Timesheet // Container name.
 
             string[] differentDepartments = new string[numberOfEmployees]; // Create array for different departments. 
 
-            int deptCount = 0; 
-        }
+            int deptCount = 0; // Tracks amount of departments. 
+
+            for (int i = 0; i < employees.Length; i++) // Loops through all employees. 
+            {
+                string currentDepartment = employees[i].Department; // Getting department for each employee. 
+                bool alreadyExists = false; // Check and see if we come across same department twice. 
+            }
+        }   
+        
     }
 
 }
