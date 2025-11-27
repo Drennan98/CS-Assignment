@@ -5,7 +5,7 @@ namespace Timesheet // Container name.
         public string Name; // Public variables, essentially the blueprint for our project.
         
         public string Department; // Public variables, essentially the blueprint for our project.
-
-        public double Hours; // Public variables, essentially the blueprint for our project.
+        
+        public string Hours;  // Public variables, essentially the blueprint for our project.
     }
 }
