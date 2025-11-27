@@ -4,20 +4,20 @@
     {
         static void Main(string[] args)
         {
-            // 1. Call the method to read the file
+            // 1. Call the method to read the file.
             Employee[] allEmployees = ReadDataFromFile();
 
-            // 2. Call the method to find unique departments
+            // 2. Call the method to find unique departments.
             string[] uniqueDepartments = FindUniqueDepartments(allEmployees);
 
-            // 3. Helper: We need to count how many departments were actually found
-            // (Because the array has null slots, we need to count the non-null ones)
+            
+            // 3. Because the array has null slots, we need to count the non-null ones.
             int deptCount = CountValidDepartments(uniqueDepartments);
 
-            // 4. Call the method to do the math and create the text lines
+            // 4. Call the method to do the math and create the text lines.
             string[] linesToSave = CalculateAndGenerateReport(allEmployees, uniqueDepartments, deptCount);
 
-            // 5. Call the method to save the file
+            // 5. Call the method to save the file.
             SaveFile(linesToSave, deptCount);
         }
 
