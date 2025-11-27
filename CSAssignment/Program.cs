@@ -40,8 +40,8 @@
                 string[] columns = lines[i].Split(',');
 
                 Employee newEmp = new Employee();
-                newEmp.Name = columns[0].Trim();
-                newEmp.Department = columns[1].Trim();
+                newEmp.Name = columns[0];
+                newEmp.Department = columns[1];
 
                 double mon = double.Parse(columns[2]);
                 double tue = double.Parse(columns[3]);
