@@ -12,3 +12,5 @@ C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\C
 C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.pdb
 C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.genruntimeconfig.cache
 C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\ref\CSAssignment.dll
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\obj\Debug\net9.0\CSAssignment.sourcelink.json
+C:\Users\DarraghDrennan(Talla\Documents\Development\C#\HelloWorld\C#Assignment\CS-Assignment\CSAssignment\bin\Debug\net9.0\Resources\OrganisationWeeklyTimesheet.csv
