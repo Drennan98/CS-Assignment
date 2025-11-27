@@ -78,8 +78,25 @@ namespace Timesheet // Container name.
                     int employeeNumber = 0; // How many employees in the department. 
                     double highestHours = -1; // Highest hours seen so far. 
                     string topEmployee = ""; // Name of best employee. 
-                }
-        }       
+
+                    for (int j = 0; j < employees.Length; j++) // Loop through all employees again. 
+                {
+                    if (employees[j].Department == deptName) // If the employee belongs to the current department. 
+                    {
+                        totalHours = totalHours + employees[j].Hours; // Add their hours to department total. 
+                        employeeNumber++; // Increment employee number. 
+
+                        if (employees[j].Hours > highestHours) // Check if they have worked most hours. 
+                        {
+                            topEmployee = employees[j].Name; // Save name. 
+                        }
+                    
+                    double averageHours = totalHours / employeeNumber; // Calculating average hours. 
+            }   
+                    linesToSave[currentLineIndex] = "Department - " + deptName;   
+            }
+        }  
+    }       
         
     }
 
