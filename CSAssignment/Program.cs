@@ -1,106 +1,159 @@
-﻿using System;
-using System.Globalization;
-using System.IO;
-
-namespace Timesheet // Container name. 
+﻿namespace SimpleTimesheet
 {
-    class Program // Must be same as file name.
+    class Program
     {
-        public static void Main(string[] args) // Main method, all executable code starts here. 
+        static void Main(string[] args)
         {
-            string[] fileLines = File.ReadAllLines("./Resources/OrganisationWeeklyTimesheet.csv"); // Reading in csv file. s
-            int numberOfEmployees = fileLines.Length - 1; // Calculating how many employees are in file and we subtract 1 as we don't need the heading. 
+            // 1. Call the method to read the file
+            Employee[] allEmployees = ReadDataFromFile();
 
-            Employee[] employees = new Employee[numberOfEmployees]; // Array for holding number of employees. 
+            // 2. Call the method to find unique departments
+            string[] uniqueDepartments = FindUniqueDepartments(allEmployees);
 
-            int arrayIndex = 0; // To keep count of where we are filling employee array. 
+            // 3. Helper: We need to count how many departments were actually found
+            // (Because the array has null slots, we need to count the non-null ones)
+            int deptCount = CountValidDepartments(uniqueDepartments);
 
-            for (int i = 1; i < fileLines.Length; i++)
+            // 4. Call the method to do the math and create the text lines
+            string[] linesToSave = CalculateAndGenerateReport(allEmployees, uniqueDepartments, deptCount);
+
+            // 5. Call the method to save the file
+            SaveFileToDisk(linesToSave, deptCount);
+        }
+
+        static Employee[] ReadDataFromFile()
+        {
+            // Read the entire text file from the hard drive into a String Array.
+            string[] lines = File.ReadAllLines("OrganisationWeeklyTimesheet.csv");
+
+            // Calculate how many employees are in the file (minus header).
+            int numberOfEmployees = lines.Length - 1;
+
+            // Create an empty Array of 'Employee' objects.
+            Employee[] employees = new Employee[numberOfEmployees];
+
+            int arrayIndex = 0;
+
+            // Loop through the file lines (start at 1 to skip Header).
+            for (int i = 1; i < lines.Length; i++)
             {
-                string[] columns = fileLines[i].Split(","); // Gives an array of strings called columns split by ,. 
+                string[] columns = lines[i].Split(',');
 
-                Employee newEmployee = new Employee(); // New instance of employee. 
+                Employee newEmp = new Employee();
+                newEmp.Name = columns[0].Trim();
+                newEmp.Department = columns[1].Trim();
 
-                newEmployee.Name = columns[0]; // New employee name which is given index 0 as Name is first heading in our array of columns. 
-                newEmployee.Department = columns[1]; // New employee Department which is given index 1 as Department is second heading in our array of columns. 
+                double mon = double.Parse(columns[2]);
+                double tue = double.Parse(columns[3]);
+                double wed = double.Parse(columns[4]);
+                double thu = double.Parse(columns[5]);
+                double fri = double.Parse(columns[6]);
 
+                newEmp.Hours = mon + tue + wed + thu + fri;
 
-                // We need to convert numbers into doubles, i.e 8.0. The CSV file currently has them in strings. 
-
-                double mon = double.Parse(columns[2]); // Monday 
-                double tues = double.Parse(columns[3]); // Tuesday
-                double wed = double.Parse(columns[4]); // Wednesday
-                double thurs = double.Parse(columns[5]); // Thursday
-                double fri = double.Parse(columns[6]); // Friday 
-
-                newEmployee.Hours = mon + tues + wed + thurs + fri; // Adding up 5 days together to get employee hours. 
-
-                employees[arrayIndex] = newEmployee; // New employee is placed into main array.
-                arrayIndex++; // Increments as next employee goes into next slot. 
+                employees[arrayIndex] = newEmp;
+                arrayIndex++;
             }
 
-            string[] differentDepartments = new string[numberOfEmployees]; // Create array for different departments. 
+            // Send the filled array back to Main
+            return employees;
+        }
+        static string[] FindUniqueDepartments(Employee[] allEmployees)
+        {
+            // Create an array to hold the department names.
+            string[] uniqueDepartments = new string[allEmployees.Length];
+            int deptCount = 0;
 
-            int deptCount = 0; // Tracks amount of departments. 
-
-            for (int i = 0; i < employees.Length; i++) // Loops through all employees. 
+            for (int i = 0; i < allEmployees.Length; i++)
             {
-                string currentDepartment = employees[i].Department; // Getting department for each employee. 
-                bool alreadyExists = false; // Check and see if we come across same department twice. 
+                string currentDept = allEmployees[i].Department;
+                bool alreadyExists = false;
 
-                  for (int j = 0; j < deptCount; j++) // Looping through Departments. 
-            {
-                if (differentDepartments[j] == currentDepartment) // Checking to see if Department name is one we have already seen. 
+                for (int j = 0; j < deptCount; j++)
                 {
-                    alreadyExists = true; // Bool for department already existing. 
-                    break; // If department already exists, we stop the program. 
-                }
-
-                if (alreadyExists == false) // If already exists is still false it means we have found new departments. 
-                {
-                    differentDepartments[deptCount] = currentDepartment; // Add to department count list. 
-                    deptCount++; // Increment so we can add department to next empty slot. 
-                }
-
-               
-            }  
-                int totalLinesNeeded = deptCount * 5; // Every department needs 5 line of text. 
-
-                string[] linesToSave = new string[totalLinesNeeded]; // String array is needed to hold the total lines needed. 
-            }   
-                int currentLineIndex = 0; // Which line is in linesToSave array. 
-
-                for (int i = 0; i < deptCount; i++) // Looping through unique department again. 
-                {
-                    string deptName = differentDepartments[i]; // Get current department name. 
-                    
-                    double totalHours = 0; // Total hours. 
-                    int employeeNumber = 0; // How many employees in the department. 
-                    double highestHours = -1; // Highest hours seen so far. 
-                    string topEmployee = ""; // Name of best employee. 
-
-                    for (int j = 0; j < employees.Length; j++) // Loop through all employees again. 
-                {
-                    if (employees[j].Department == deptName) // If the employee belongs to the current department. 
+                    if (uniqueDepartments[j] == currentDept)
                     {
-                        totalHours = totalHours + employees[j].Hours; // Add their hours to department total. 
-                        employeeNumber++; // Increment employee number. 
+                        alreadyExists = true;
+                        break;
+                    }
+                }
 
-                        if (employees[j].Hours > highestHours) // Check if they have worked most hours. 
-                        {
-                            topEmployee = employees[j].Name; // Save name. 
-                        }
-                    
-                    double averageHours = totalHours / employeeNumber; // Calculating average hours. 
-            }   
-                    linesToSave[currentLineIndex] = "Department - " + deptName;   
+                if (alreadyExists == false)
+                {
+                    uniqueDepartments[deptCount] = currentDept;
+                    deptCount++;
+                }
             }
-        }  
-    }       
-        
+
+            return uniqueDepartments;
+        }
+
+        static int CountValidDepartments(string[] depts)
+        {
+            // The array might be size 100, but only have 3 departments.
+            // We loop until we hit a "null" (empty) slot to find the real count.
+            int count = 0;
+            for(int i = 0; i < depts.Length; i++)
+            {
+                if (depts[i] != null)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+        static string[] CalculateAndGenerateReport(Employee[] allEmployees, string[] uniqueDepartments, int deptCount)
+        {
+            int totalLinesNeeded = deptCount * 5;
+            string[] linesToSave = new string[totalLinesNeeded];
+            int currentLineIndex = 0;
+
+            for (int i = 0; i < deptCount; i++)
+            {
+                string deptName = uniqueDepartments[i];
+
+                double totalHours = 0;
+                int employeeCount = 0;
+                double highestHoursFound = -1;
+                string bestEmployeeName = "";
+
+                // INNER LOOP: Look through the full list of employees.
+                for (int j = 0; j < allEmployees.Length; j++)
+                {
+                    if (allEmployees[j].Department == deptName)
+                    {
+                        totalHours = totalHours + allEmployees[j].Hours;
+                        employeeCount++;
+
+                        if (allEmployees[j].Hours > highestHoursFound)
+                        {
+                            highestHoursFound = allEmployees[j].Hours;
+                            bestEmployeeName = allEmployees[j].Name;
+                        }
+                    }
+                }
+
+                double averageHours = totalHours / employeeCount;
+
+                // Fill the output array.
+                linesToSave[currentLineIndex] = "Department – " + deptName;
+                linesToSave[currentLineIndex + 1] = "Total Hours Worked by Department: " + totalHours + " Hours";
+                linesToSave[currentLineIndex + 2] = "Average Hours Worked by Employees: " + averageHours + " Hours";
+                linesToSave[currentLineIndex + 3] = "Employee with Most Hours Worked: " + bestEmployeeName;
+                linesToSave[currentLineIndex + 4] = "";
+
+                currentLineIndex = currentLineIndex + 5;
+            }
+
+            return linesToSave;
+        }
+        static void SaveFileToDisk(string[] linesToSave, int deptCount)
+        {
+            // Take the array of strings and write it to the hard drive instantly.
+            File.WriteAllLines("OrganisationDepartmentTotals.txt", linesToSave);
+
+            Console.WriteLine("Done! Created report for " + deptCount + " departments.");
+            Console.ReadLine();
+        }
     }
-
 }
-
-
-
