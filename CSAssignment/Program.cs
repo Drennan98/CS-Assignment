@@ -90,7 +90,6 @@
 
         static int CountValidDepartments(string[] depts)
         {
-            // The array might be size 100, but only have 3 departments.
             // We loop until we hit a "null" (empty) slot to find the real count.
             int count = 0;
             for(int i = 0; i < depts.Length; i++)
@@ -117,7 +116,7 @@
                 double highestHoursFound = -1;
                 string bestEmployeeName = "";
 
-                // INNER LOOP: Look through the full list of employees.
+                // Loop through the full list of employees.
                 for (int j = 0; j < allEmployees.Length; j++)
                 {
                     if (allEmployees[j].Department == deptName)
@@ -149,7 +148,7 @@
         }
         static void SaveFile(string[] linesToSave, int deptCount)
         {
-            // Take the array of strings and write it to the hard drive instantly.
+            // Take the array of strings and write it to the hard drive.
             File.WriteAllLines("OrganisationDepartmentTotals.txt", linesToSave);
 
             Console.WriteLine("Done! Created report for " + deptCount + " departments.");
