@@ -18,7 +18,7 @@
             string[] linesToSave = CalculateAndGenerateReport(allEmployees, uniqueDepartments, deptCount);
 
             // 5. Call the method to save the file
-            SaveFileToDisk(linesToSave, deptCount);
+            SaveFile(linesToSave, deptCount);
         }
 
         static Employee[] ReadDataFromFile()
@@ -147,7 +147,7 @@
 
             return linesToSave;
         }
-        static void SaveFileToDisk(string[] linesToSave, int deptCount)
+        static void SaveFile(string[] linesToSave, int deptCount)
         {
             // Take the array of strings and write it to the hard drive instantly.
             File.WriteAllLines("OrganisationDepartmentTotals.txt", linesToSave);
