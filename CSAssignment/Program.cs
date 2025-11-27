@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 
 namespace Timesheet // Container name. 
@@ -46,7 +47,26 @@ namespace Timesheet // Container name.
             {
                 string currentDepartment = employees[i].Department; // Getting department for each employee. 
                 bool alreadyExists = false; // Check and see if we come across same department twice. 
+
+                  for (int j = 0; j < deptCount; j++) // Looping through Departments. 
+            {
+                if (differentDepartments[j] == currentDepartment) // Checking to see if Department name is one we have already seen. 
+                {
+                    alreadyExists = true; // Bool for department already existing. 
+                    break; // If department already exists, we stop the program. 
+                }
+
+                if (alreadyExists == false) // If already exists is still false it means we have found new departments. 
+                {
+                    differentDepartments[deptCount] = currentDepartment; // Add to department count list. 
+                    deptCount++; // Increment so we can add department to next empty slot. 
+                }
+            }   
+                int totalLinesNeeded = deptCount * 5; // Every department needs 5 line of text. 
+
+                string[] linesToSave = new string[totalLinesNeeded]; // String array is needed to hold the total lines needed. 
             }
+          
         }   
         
     }
