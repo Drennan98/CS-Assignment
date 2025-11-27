@@ -12,7 +12,7 @@ namespace Timesheet // Container name.
 
             Employee[] employees = new Employee[numberOfEmployees]; // Array for holding number of employees. 
 
-            // int arrayIndex = 0; // To keep count of where we are filling employee array. 
+            int arrayIndex = 0; // To keep count of where we are filling employee array. 
 
             for (int i = 1; i < fileLines.Length; i++)
             {
@@ -34,11 +34,13 @@ namespace Timesheet // Container name.
 
                 newEmployee.Hours = mon + tues + wed + thurs + fri; // Adding up 5 days together to get employee hours. 
 
+                employees[arrayIndex] = newEmployee; // New emplpye is placed into main array.
+                arrayIndex++;
             }
         }
-        }
-
     }
+
+}
 
 
 
